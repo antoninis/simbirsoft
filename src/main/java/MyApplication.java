@@ -1,5 +1,6 @@
 import org.jsoup.Jsoup;
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -26,6 +27,9 @@ public class MyApplication {
             while ((data = reader.readLine()) != null) {
                 words.append(data);
             }
+            FileWriter fileWriter = new FileWriter("a.html");
+            fileWriter.write(words.toString());
+
             //textOnly хранит весь текст заданной страницы
             textOnly = Jsoup.parse(words.toString()).text().toUpperCase();
 
